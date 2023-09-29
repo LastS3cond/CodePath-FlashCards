@@ -70,3 +70,7 @@ body {
 {
   box-shadow: 0 0 50px lightblue;
 }
+/* Active state */
+.text:active {
+  transform: scale(1.03);
+}
