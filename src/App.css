@@ -18,44 +18,69 @@ body {
   background-position-y:bottom;
 }
 
-/* Style for the header section */
-.header {
-  padding: 1%;
-  color: #000000;
-  align-items: center;
-  margin-left: -10px;
-  margin-right: -10px;
-  margin-top: -10px;
-  border-radius: 15px;
+.GuessBox{
+  background-color: #68baf1;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 7px;
+  width: 300px;
+  height: 60px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #000000;
+  opacity: 85%;
 }
 
+input{
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 2px 5px;
+  opacity: 1;
+}
+
+.Submit{
+  background-color: #2833ffe4;
+  color: #fff;
+  margin-left:5px;
+  cursor: pointer;
+  border-radius: 7px;
+  padding: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #000000;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
 .container {
   display: flex;
   justify-content:space-between;
-  margin-top: 20px;
+  margin-top: 10px;
+  
 }
 
 .Arrow button {
   background-color: #68baf1;
   color: #fff;
-  padding: 10px 20px;
+  padding: 30px 20px;
   cursor: pointer;
-  border: none;
   border-radius: 7px;
+
+  border-style: solid;
+  border-width: 2px;
+  border-color: #000000;
+  opacity: 85%;
 }
 
-.Arrow:hover
-{
-  box-shadow: 0 0 30px lightblue;
-}
-.Front{
-  font-size: xx-large;
-}
-
-.text{
+.FlashCard {
   background-color: #68baf1;
   color: #ffffff;
-  border: none;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #000000;
+  opacity: 75%;
   font-family: 'Cabin';
   font-size: larger;
   text-wrap: stable;
@@ -64,13 +89,27 @@ body {
   padding: 10px 20px;
   cursor: pointer;
   outline: none;
-  border-radius: 15px;
+  border-radius: 5px;
 }
-.text:hover
+
+.Front{
+  font-size: xx-large;
+}
+
+.Arrow:hover
+{
+  box-shadow: 0 0 30px lightblue;
+}
+
+.Arrow:active {
+  transform: scale(1.005);
+}
+
+.FlashCard:hover
 {
   box-shadow: 0 0 50px lightblue;
 }
-/* Active state */
-.text:active {
-  transform: scale(1.03);
+
+.FlashCard:active {
+  transform: scale(1.005);
 }

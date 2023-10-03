@@ -6,46 +6,81 @@ const FlashCards = (props) => {
   const [front, setFront] = useState(true);
   const [index, setIndex] = useState(0);
 
+  const content = [
+    ["Wrote the Percy Jackson Series","Rick Riordan"],
+    ["Wrote the Harry Potter Series","J.K. Rowling"],
+    ["Wrote the Hunger Games Series","Suzanne Collins"],
+    ["Wrote the Mortal Instruments Series","Cassandra Clare"],
+    ["Wrote the I Am Number Four Series","Pittacus Lore"],
+    ["Wrote the Legend Series","Marie Lu"],
+    ["Wrote the Maze Runner Series","James Dashner"],
+    ["Wrote the Lunar Chronicles Series","Marissa Meyer"],
+    ["Wrote the Steampunk Chronicles","Kady Cross"],
+    ["Wrote the Uglies Series","Scott Westerfeld"]
+   ];
+
+   const[guess, setGuess] = useState("")
+   const updateGuess = (event) =>
+   {
+    setGuess(event.target.value);
+   }
+
   const toggleCard = () => {
     setFront(!front);
   };
 
+  const changeColor = (color) => {
+    document.getElementById("guessbox").style.backgroundColor = color;
+}
+
+  const checkAnswer = () => {
+    if(guess === content[index][1])
+    {
+      changeColor("forestgreen");
+      toggleCard(false);
+    }
+    else
+    {
+      changeColor("red");
+    }
+  };
+
 
   const nextCard = () => {
-    while(Math.floor(Math.random() * 8) == index);
-    setIndex(Math.floor(Math.random() * 8));
+    if(index < content.length - 1)
+    {
+      setFront(true);
+      setIndex(index + 1);
+    }
   };
 
   const prevCard = () => {
-    while(Math.floor(Math.random() * 8) == index);
-    setIndex(Math.floor(Math.random() * 8));
+    if(index > 0)
+    {
+      setFront(true);
+      setIndex(index - 1);
     }
-
-  const content = [
-   ["Lists","A data structure that allows access to all elements by index."],
-   ["Queue","A data structure that adds to the back and removes from the front."],
-   ["Stack","A data structure that adds to the back and removes from the back."],
-   ["Deque","A data structure that allows addition and removal from both ends."],
-   ["Set","A data structure that doesn't allow repetition, and is not indexed. Quick operations."],
-   ["Map","A data structure that \"maps\" a key to a value. Not indexed, quick operations."],
-   ["PriorityQueue","A data structure that allows removal at one end, which always has the \"maximum\" which can be defined by the user. Non-indexed, but ordered as elements are removed."],
-   ["LinkedList","Implementation of a List, using node objects such that each node contains a reference to the next. O(n) search, but O(1) removal and addition once target index is reached."],
-   ["ArrayList","Implementation of a List, using node objects such that each node contains a reference to the next. O(1) search, but O(n) removal and addition once target index is reached."]
-  ];
+  }
 
   return (
     <div>
-      <button className='text' onClick={toggleCard}>
-        {front ? <p className="Front">{content[index][0]}</p> : content[index][1]}
-        </button>
-    <div className = "container">
-            <div className="Arrow">
-              <button onClick={prevCard}> &lt;</button>
-            </div>
-                <div className="Arrow">
-              <button onClick={nextCard}> &gt;</button>
-            </div>
+      <h2 className='counter'> Card {index + 1}! </h2>
+      <button className='FlashCard' onClick={toggleCard}>
+        <p className="Front">{front ? content[index][0] : content[index][1]}</p>
+      </button>
+      <div className = "container">
+        <div className="Arrow">
+          <button onClick={prevCard} > &lt;</button>
         </div>
+        <div id="guessbox" className="GuessBox">
+            <label>Enter your answer: </label>
+            <input value={guess} placeholder="Enter Answer Here!" onChange={updateGuess} />
+          <button className="Submit" onClick={checkAnswer}>Submit!</button>
+        </div>
+        <div className="Arrow">
+          <button onClick={nextCard}> &gt;</button>
+        </div>
+      </div>
     </div>
   );
   };
