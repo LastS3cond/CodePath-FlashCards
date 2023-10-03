@@ -79,7 +79,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<a href="//imgur.com/a/9BzEU0Y">CodePath Project 2 Flashcards</a>
+<a href="//imgur.com/a/9BzEU0Y">CodePath Project 3 Flashcards</a>
 
 ## Notes
 
